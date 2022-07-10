@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  backend:
+    image: backend:v1
+    ports: 
+      - "5000:9000"
+    restart: always
+    volumes: 
+      - './:/app'
+    environment:
+      MONGODB_URL : mongodb://root:0122468798Bac@localhost:27017/FilmLokLok
+    depends_on: 
+      - mongodb
+  mongodb: 
+    image: mongo
+    restart: always
+    volumes:
+      - './db:/data/db'
+    ports: 
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 0122468798Bac
+
+    
+
+
+  
